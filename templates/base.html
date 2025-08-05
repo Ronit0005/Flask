@@ -5,9 +5,20 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <nav>This is a navbar </nav>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for msg in messages %}
+        <li>{{msg}}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">{% block footer %}
         &copy; Copywrite 2020 | All rights reserves 
-        {% endblock %}
+    {% endblock %}
     </div>
 </body>
